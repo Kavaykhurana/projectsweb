@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changing Boxes</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            border: 3px solid black;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: red;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="box1" class="box"></div>
+        <div id="box2" class="box"></div>
+        <div id="box3" class="box"></div>
+        <div id="box4" class="box"></div>
+        <div id="box5" class="box"></div>
+        <div id="box6" class="box"></div>
+    </div>
+
+    <script>
+        const box1 = document.getElementById('box1');
+        const box2 = document.getElementById('box2');
+        const box3 = document.getElementById('box3');
+        const box4 = document.getElementById('box4');
+        const box5 = document.getElementById('box5');
+        const box6 = document.getElementById('box6');
+        let r, g, b;
+
+        function changeColors() {
+            r = Math.floor(Math.random() * 256);
+            g = Math.floor(Math.random() * 256);
+            b = Math.floor(Math.random() * 256);
+            
+            box1.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            box2.style.backgroundColor = `rgb(${r}, ${b}, ${g})`;
+            box3.style.backgroundColor = `rgb(${g}, ${r}, ${b})`;
+            box4.style.backgroundColor = `rgb(${g}, ${b}, ${r})`;
+            box5.style.backgroundColor = `rgb(${b}, ${r}, ${g})`;
+            box6.style.backgroundColor = `rgb(${b}, ${g}, ${r})`;
+        }
+
+        box1.addEventListener('click', changeColors);
+        box2.addEventListener('click', changeColors);
+        box3.addEventListener('click', changeColors);
+        box4.addEventListener('click', changeColors);
+        box5.addEventListener('click', changeColors);
+        box6.addEventListener('click', changeColors);
+    </script>
+</body>
+</html>
